@@ -32,4 +32,6 @@ program tfex
       error stop
    end if
 
+   call write_toml(table, output_unit)
+
 end program tfex

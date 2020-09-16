@@ -26,4 +26,21 @@ subroutine read_toml(table, file)
 end subroutine read_toml
 
 
+!> Writeout an input file to a TOML data structure
+subroutine write_toml(table, unit)
+
+   !> TOML data structure
+   type(toml_table), intent(inout) :: table
+
+   !> Unit for I/O
+   integer :: unit
+
+   type(toml_serializer) :: ser
+
+   ser = toml_serializer(unit)
+   call table%accept(ser)
+
+end subroutine write_toml
+
+
 end module toml
